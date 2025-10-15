@@ -55,7 +55,6 @@
             colTipo = new DataGridViewTextBoxColumn();
             colPersonas = new DataGridViewTextBoxColumn();
             colDias = new DataGridViewTextBoxColumn();
-            button1 = new Button();
             gbCabania.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDias).BeginInit();
             gbAdicionales.SuspendLayout();
@@ -327,22 +326,12 @@
             colDias.Name = "colDias";
             colDias.ReadOnly = true;
             // 
-            // button1
-            // 
-            button1.Location = new Point(424, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 25);
-            button1.TabIndex = 6;
-            button1.Text = "Cancelar";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // frmSP2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Brown;
             ClientSize = new Size(922, 470);
-            Controls.Add(button1);
             Controls.Add(dgvDatos);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -396,6 +385,5 @@
         private DataGridViewTextBoxColumn colTipo;
         private DataGridViewTextBoxColumn colPersonas;
         private DataGridViewTextBoxColumn colDias;
-        private Button button1;
     }
 }
