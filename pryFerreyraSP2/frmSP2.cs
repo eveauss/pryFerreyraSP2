@@ -15,8 +15,27 @@ namespace pryFerreyraSP2
         const float TELEVISOR = 2;
         const float PORPERSONA = 1;
 
+        public struct Reserva
+        {
+            string tipo;
+            int cantidad;
+            int dias;
+        }
+
+        Reserva[] vecReserva = new Reserva[3];
+
+        string[,] matReserva = new string[3, 3];
+        int indiceFila = 0;
         private void frmSP2_Load(object sender, EventArgs e)
         {
+            matReserva[indiceFila, 0] = cmbTipo.Text;
+            matReserva[indiceFila, 1] = cmbPersonas.Text;
+            matReserva[indiceFila, 2] = txtDias.Text;
+            indiceFila++;
+
+
+
+
             // cargar los items en el primer control combobox
             cmbTipo.Items.Clear();
             cmbTipo.Items.Add("Tipo A");
@@ -98,16 +117,7 @@ namespace pryFerreyraSP2
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            // condiciones para habilitar o no el botón "Aceptar"
-            if (txtDias.Text != "" && txtDias.Text != "0" &&
-            txtNombre.Text != "" && txtTelefono.Text != "")
-            {
-                btnAceptar.Enabled = true;
-            }
-            else
-            {
-                btnAceptar.Enabled = false;
-            }
+            
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
@@ -126,6 +136,8 @@ namespace pryFerreyraSP2
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+
+
             float PrecioBase;
             float Opcionales;
             float Recargo;
@@ -181,6 +193,14 @@ namespace pryFerreyraSP2
             MessageBoxButtons.OK, MessageBoxIcon.Information);
             // inicialzar los controles de la interfaz
 
+            LimpiarIU();
+
+
+        }
+
+
+        void LimpiarIU()
+        {
             cmbTipo.SelectedIndex = 0;
             txtDias.Text = "1";
             chkCocina.Checked = false;
@@ -190,6 +210,25 @@ namespace pryFerreyraSP2
             optEfectivo.Checked = true;
             txtNombre.Text = "";
             txtTelefono.Text = "";
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarIU();
+        }
+
+        private void txtTelefono_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            // condiciones para habilitar o no el botón "Aceptar"
+            if (txtDias.Text != "" && txtDias.Text != "0" &&
+            txtNombre.Text != "" && txtTelefono.Text != "")
+            {
+                btnAceptar.Enabled = true;
+            }
+            else
+            {
+                btnAceptar.Enabled = false;
+            }
         }
     }
 }

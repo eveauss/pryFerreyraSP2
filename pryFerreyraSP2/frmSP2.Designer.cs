@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             gbCabania = new GroupBox();
+            txtDias = new NumericUpDown();
             lblTipo = new Label();
             lblPersonas = new Label();
             lblDias = new Label();
             cmbPersonas = new ComboBox();
-            txtDias = new TextBox();
             cmbTipo = new ComboBox();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             gbAdicionales = new GroupBox();
             chkTelevisor = new CheckBox();
             chkHeladera = new CheckBox();
@@ -46,12 +45,14 @@
             optEfectivo = new RadioButton();
             cmbTarjeta = new ComboBox();
             gbReservas = new GroupBox();
+            txtTelefono = new MaskedTextBox();
             lblTelefono = new Label();
             lblNombre = new Label();
-            txtTelefono = new TextBox();
             txtNombre = new TextBox();
             btnAceptar = new Button();
+            btnCancelar = new Button();
             gbCabania.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)txtDias).BeginInit();
             gbAdicionales.SuspendLayout();
             gbPago.SuspendLayout();
             gbReservas.SuspendLayout();
@@ -59,11 +60,11 @@
             // 
             // gbCabania
             // 
+            gbCabania.Controls.Add(txtDias);
             gbCabania.Controls.Add(lblTipo);
             gbCabania.Controls.Add(lblPersonas);
             gbCabania.Controls.Add(lblDias);
             gbCabania.Controls.Add(cmbPersonas);
-            gbCabania.Controls.Add(txtDias);
             gbCabania.Controls.Add(cmbTipo);
             gbCabania.Location = new Point(12, 12);
             gbCabania.Name = "gbCabania";
@@ -71,6 +72,13 @@
             gbCabania.TabIndex = 0;
             gbCabania.TabStop = false;
             gbCabania.Text = "Tipo de Cabaña";
+            // 
+            // txtDias
+            // 
+            txtDias.Location = new Point(404, 28);
+            txtDias.Name = "txtDias";
+            txtDias.Size = new Size(120, 23);
+            txtDias.TabIndex = 18;
             // 
             // lblTipo
             // 
@@ -107,16 +115,9 @@
             cmbPersonas.Size = new Size(98, 23);
             cmbPersonas.TabIndex = 13;
             // 
-            // txtDias
-            // 
-            txtDias.Location = new Point(406, 28);
-            txtDias.Name = "txtDias";
-            txtDias.Size = new Size(100, 23);
-            txtDias.TabIndex = 12;
-            txtDias.TextChanged += txtDias_TextChanged;
-            // 
             // cmbTipo
             // 
+            cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipo.FormattingEnabled = true;
             cmbTipo.Location = new Point(61, 28);
             cmbTipo.Name = "cmbTipo";
@@ -222,9 +223,9 @@
             // 
             // gbReservas
             // 
+            gbReservas.Controls.Add(txtTelefono);
             gbReservas.Controls.Add(lblTelefono);
             gbReservas.Controls.Add(lblNombre);
-            gbReservas.Controls.Add(txtTelefono);
             gbReservas.Controls.Add(txtNombre);
             gbReservas.Location = new Point(12, 269);
             gbReservas.Name = "gbReservas";
@@ -232,6 +233,15 @@
             gbReservas.TabIndex = 2;
             gbReservas.TabStop = false;
             gbReservas.Text = "Titular de la Reserva";
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(76, 92);
+            txtTelefono.Mask = "(999)000-0000";
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(441, 23);
+            txtTelefono.TabIndex = 20;
+            txtTelefono.MaskInputRejected += txtTelefono_MaskInputRejected;
             // 
             // lblTelefono
             // 
@@ -251,14 +261,6 @@
             lblNombre.TabIndex = 18;
             lblNombre.Text = "Nombre";
             // 
-            // txtTelefono
-            // 
-            txtTelefono.Location = new Point(80, 87);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(437, 23);
-            txtTelefono.TabIndex = 14;
-            txtTelefono.TextChanged += txtTelefono_TextChanged;
-            // 
             // txtNombre
             // 
             txtNombre.Location = new Point(80, 43);
@@ -277,11 +279,22 @@
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(381, 422);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 25);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // frmSP2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(558, 470);
+            Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(gbReservas);
             Controls.Add(gbPago);
@@ -293,6 +306,7 @@
             Load += frmSP2_Load;
             gbCabania.ResumeLayout(false);
             gbCabania.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)txtDias).EndInit();
             gbAdicionales.ResumeLayout(false);
             gbAdicionales.PerformLayout();
             gbPago.ResumeLayout(false);
@@ -305,8 +319,6 @@
         #endregion
 
         private GroupBox gbCabania;
-        private TextBox txtDias;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private GroupBox gbAdicionales;
         private CheckBox chkTelevisor;
         private CheckBox chkHeladera;
@@ -320,12 +332,14 @@
         private TextBox txtNombre;
         private Button btnAceptar;
         private ComboBox cmbPersonas;
-        private TextBox txtTelefono;
         private Label lblTipo;
         private Label lblPersonas;
         private Label lblDias;
         private Label lblTarjeta;
         private Label lblTelefono;
         private Label lblNombre;
+        private Button btnCancelar;
+        private MaskedTextBox txtTelefono;
+        private NumericUpDown txtDias;
     }
 }
