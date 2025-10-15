@@ -51,15 +51,21 @@
             txtNombre = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
+            dgvDatos = new DataGridView();
+            colTipo = new DataGridViewTextBoxColumn();
+            colPersonas = new DataGridViewTextBoxColumn();
+            colDias = new DataGridViewTextBoxColumn();
             gbCabania.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDias).BeginInit();
             gbAdicionales.SuspendLayout();
             gbPago.SuspendLayout();
             gbReservas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
             // gbCabania
             // 
+            gbCabania.BackColor = Color.White;
             gbCabania.Controls.Add(txtDias);
             gbCabania.Controls.Add(lblTipo);
             gbCabania.Controls.Add(lblPersonas);
@@ -127,6 +133,7 @@
             // 
             // gbAdicionales
             // 
+            gbAdicionales.BackColor = Color.White;
             gbAdicionales.Controls.Add(chkTelevisor);
             gbAdicionales.Controls.Add(chkHeladera);
             gbAdicionales.Controls.Add(chkCocina);
@@ -169,6 +176,7 @@
             // 
             // gbPago
             // 
+            gbPago.BackColor = Color.White;
             gbPago.Controls.Add(lblTarjeta);
             gbPago.Controls.Add(optTarjeta);
             gbPago.Controls.Add(optEfectivo);
@@ -223,6 +231,7 @@
             // 
             // gbReservas
             // 
+            gbReservas.BackColor = Color.White;
             gbReservas.Controls.Add(txtTelefono);
             gbReservas.Controls.Add(lblTelefono);
             gbReservas.Controls.Add(lblNombre);
@@ -289,11 +298,41 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // dgvDatos
+            // 
+            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colTipo, colPersonas, colDias });
+            dgvDatos.Location = new Point(563, 11);
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
+            dgvDatos.Size = new Size(337, 405);
+            dgvDatos.TabIndex = 5;
+            // 
+            // colTipo
+            // 
+            colTipo.HeaderText = "Tipo";
+            colTipo.Name = "colTipo";
+            colTipo.ReadOnly = true;
+            // 
+            // colPersonas
+            // 
+            colPersonas.HeaderText = "Personas";
+            colPersonas.Name = "colPersonas";
+            colPersonas.ReadOnly = true;
+            // 
+            // colDias
+            // 
+            colDias.HeaderText = "Dias";
+            colDias.Name = "colDias";
+            colDias.ReadOnly = true;
+            // 
             // frmSP2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(558, 470);
+            BackColor = Color.Brown;
+            ClientSize = new Size(922, 470);
+            Controls.Add(dgvDatos);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(gbReservas);
@@ -313,6 +352,7 @@
             gbPago.PerformLayout();
             gbReservas.ResumeLayout(false);
             gbReservas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             ResumeLayout(false);
         }
 
@@ -341,5 +381,9 @@
         private Button btnCancelar;
         private MaskedTextBox txtTelefono;
         private NumericUpDown txtDias;
+        private DataGridView dgvDatos;
+        private DataGridViewTextBoxColumn colTipo;
+        private DataGridViewTextBoxColumn colPersonas;
+        private DataGridViewTextBoxColumn colDias;
     }
 }
