@@ -33,7 +33,7 @@ namespace pryFerreyraSP2
 
             for (int iRecorrerF = 0; iRecorrerF < matReserva.GetLength(0); iRecorrerF++)
             {
-                dgvDatos.Rows.Add(matReserva[iRecorrerF, 0], matReserva[iRecorrerF, 1], matReserva[iRecorrerF, 2]); 
+                dgvDatos.Rows.Add(matReserva[iRecorrerF, 0], matReserva[iRecorrerF, 1], matReserva[iRecorrerF, 2]);
             }
 
             matReserva[indiceFila, 0] = cmbTipo.Text;
@@ -125,7 +125,7 @@ namespace pryFerreyraSP2
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
@@ -344,6 +344,11 @@ namespace pryFerreyraSP2
             matReserva[98, 0] = "Tipo A"; matReserva[98, 1] = "87"; matReserva[98, 2] = "24";
             matReserva[99, 0] = "Tipo B"; matReserva[99, 1] = "1"; matReserva[99, 2] = "15";
             matReserva[100, 0] = "Tipo A"; matReserva[100, 1] = "13"; matReserva[100, 2] = "7";
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

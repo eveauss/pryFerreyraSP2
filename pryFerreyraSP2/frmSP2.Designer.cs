@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSP2));
             gbCabania = new GroupBox();
             txtDias = new NumericUpDown();
             lblTipo = new Label();
@@ -307,6 +308,7 @@
             dgvDatos.ReadOnly = true;
             dgvDatos.Size = new Size(337, 405);
             dgvDatos.TabIndex = 5;
+            dgvDatos.CellContentClick += dgvDatos_CellContentClick;
             // 
             // colTipo
             // 
@@ -339,6 +341,7 @@
             Controls.Add(gbPago);
             Controls.Add(gbAdicionales);
             Controls.Add(gbCabania);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmSP2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reservas de Cabañas";
