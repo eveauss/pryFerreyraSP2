@@ -56,6 +56,7 @@
             colTipo = new DataGridViewTextBoxColumn();
             colPersonas = new DataGridViewTextBoxColumn();
             colDias = new DataGridViewTextBoxColumn();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             gbCabania.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)txtDias).BeginInit();
             gbAdicionales.SuspendLayout();
@@ -116,6 +117,7 @@
             // 
             // cmbPersonas
             // 
+            cmbPersonas.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPersonas.FormattingEnabled = true;
             cmbPersonas.Location = new Point(245, 28);
             cmbPersonas.Name = "cmbPersonas";
@@ -285,7 +287,7 @@
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(75, 25);
             btnAceptar.TabIndex = 3;
-            btnAceptar.Text = "Aceptar";
+            btnAceptar.Text = "Reservar";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btnAceptar_Click;
             // 
@@ -341,7 +343,10 @@
             Controls.Add(gbPago);
             Controls.Add(gbAdicionales);
             Controls.Add(gbCabania);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmSP2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reservas de Cabañas";
@@ -388,5 +393,6 @@
         private DataGridViewTextBoxColumn colTipo;
         private DataGridViewTextBoxColumn colPersonas;
         private DataGridViewTextBoxColumn colDias;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

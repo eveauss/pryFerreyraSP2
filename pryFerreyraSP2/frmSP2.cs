@@ -71,22 +71,22 @@ namespace pryFerreyraSP2
         {
             // cuando ocurra el evento se debe actualizar el
             // contenido del combo de personas
-            int I = 0;
+            int i = 0;
             // limpiar los items de personas
             cmbPersonas.Items.Clear();
             // si es tipo de cabaña A ->> cargar los items del 1 al 4
             if (cmbTipo.SelectedIndex == 0) // o cmbTipo.SelectedItem == "Tipo A"
             {
-                for (I = 1; I <= 4; I++)
+                for (i = 1; i <= 4; i++)
                 {
-                    cmbPersonas.Items.Add(I);
+                    cmbPersonas.Items.Add(i);
                 }
             }
             else
             { // si es tipo de cabaña B ->> cargar los items del 1 al 8
-                for (I = 1; I <= 8; I++)
+                for (   i = 1; i <= 8; i++)
                 {
-                    cmbPersonas.Items.Add(I);
+                    cmbPersonas.Items.Add(i);
                 }
             }
             // establecer como preseleccionado el item 0 del combo
@@ -125,7 +125,15 @@ namespace pryFerreyraSP2
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtNombre.Text != "" && txtNombre.Text != "0" &&
+           txtNombre.Text != "" && txtTelefono.Text != "")
+            {
+                btnAceptar.Enabled = true;
+            }
+            else
+            {
+                btnAceptar.Enabled = false;
+            }
         }
 
         private void txtTelefono_TextChanged(object sender, EventArgs e)
